@@ -32,7 +32,6 @@
 				const querySnapshot = await getDocs(collection(db, 'card'));
 				let fbCards: Card[] = [];
 				querySnapshot.forEach((doc) => {
-					console.log(doc.id, '=>', doc.data());
 					const card = {
 						id: doc.id,
 						name: doc.data().name,
