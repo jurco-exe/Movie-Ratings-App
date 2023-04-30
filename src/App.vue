@@ -1,15 +1,18 @@
 <template>
 	<div class="container d-flex flex-column justify-content-center">
-		<h1 class="text-center">Cinematic <span>Score</span></h1>
+		<h1 class="text-center">
+			Ateckari <span class="second-word">Maturita </span>
+			<span class="third-word">V procese</span>
+		</h1>
 		<div class="description-container mt-5">
-			<ul>
+			<ul class="text-center">
 				<li>
-					Introducing our upcoming cinematic score website where movie
-					enthusiasts can rate and review their favorite films with ease.
+					Vítaj na stránke, ktorá slúži na uchovávanie poznámok z predmetov na
+					maturitu!
 				</li>
 				<li>
-					Stay tuned for the official launch of our user-friendly platform
-					designed to enhance your movie-watching experience.
+					Táto stránka je určená pre študentov, ktorí chcú mať všetky svoje
+					poznámky pre maturitu na jednom mieste.
 				</li>
 			</ul>
 		</div>
