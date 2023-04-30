@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+	<div class="container">
+		<div class="hero-section">
+			<input type="text" placeholder="Search Movie..." />
+		</div>
+	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+	import { defineComponent, ref, computed } from 'vue';
+	import { fetchMovies } from '../data/api_data';
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+	export default defineComponent({
+		name: 'MovieSearch',
+		setup() {
+			const click = ref();
+
+			return {
+				click
+			};
+		}
+	});
 </script>
