@@ -1,9 +1,9 @@
 <template>
 	<div class="container">
 		<div class="hero-section">
-			<h1 class="text-center my-5">Predmety na maturitu</h1>
+			<h1 class="text-center my-5 header">Predmety</h1>
 			<div class="row my-5">
-				<CardComponent :cardList="cardList" />
+				<CardComponent :cardList="cardList" @card-clicked="handleCardClick" />
 			</div>
 		</div>
 	</div>
@@ -14,16 +14,16 @@
 	import CardComponent from '../components/CardComponent.vue';
 	import { Card } from '../types/card';
 	import { db } from '@/firebase';
-	import {
-		collection,
-		doc,
-		getDocs
-	} from '../../node_modules/firebase/firestore';
+	import { collection, doc, getDocs } from 'firebase/firestore';
+	import { useRouter } from 'vue-router';
 
 	export default defineComponent({
 		name: 'SubjectsComponent',
 		components: {
 			CardComponent
+		},
+		props: {
+			// cardList: []
 		},
 		setup() {
 			const cardList = ref<Card[]>([]);
@@ -43,8 +43,21 @@
 				cardList.value = fbCards;
 			});
 
+			const handleCardClick = (card: Card) => {
+				const router = useRouter();
+				router.push({
+					name: 'SubjectView',
+					params: {
+						name: card.name,
+						class: card.class,
+						description: card.description
+					}
+				});
+			};
+
 			return {
-				cardList
+				cardList,
+				handleCardClick
 			};
 		}
 	});

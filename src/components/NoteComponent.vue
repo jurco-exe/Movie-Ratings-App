@@ -1,22 +1,9 @@
 <template>
-	<div class="row">
-		<div class="col-4">
-			<div
-				class="card"
-				v-for="card in cardList"
-				:key="card.id"
-				@click="$emit('card-clicked', card)"
-			>
-				<router-link :to="'/subject/' + card.id">
-					<div class="card-body">
-						<h5 class="card-title">{{ card.name }}</h5>
-						<p class="card-text">{{ card.description }}</p>
-						<p class="card-text">
-							<small class="text-muted">{{ card.class }}</small>
-						</p>
-					</div>
-				</router-link>
-			</div>
+	<div v-for="card in cardList" :key="card.id" class="col-xl-3 col-sm-6 mb-4">
+		<div class="card text-white p-3 rounded-0">
+			<h3>{{ card.name }}</h3>
+			<p>{{ card.class }}</p>
+			<h6>{{ card.description }}</h6>
 		</div>
 	</div>
 </template>
